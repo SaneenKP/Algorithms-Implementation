@@ -1,4 +1,11 @@
 #include<iostream>
+
+std::string monoalphabeticCipher(std::string &message){
+
+    
+
+}
+
 int main(){
     std::string message;
     std::string cipher;
