@@ -2,10 +2,9 @@
 #include <unordered_set>
 #include<random>
 
-std::string monoalphabeticCipher(std::string &message){
+std::unordered_set<char> randomCharacterOrderGenerator(){
 
     std::unordered_set<char> randomCharactersPositions;
-
     std::random_device seed;
     std::mt19937 gen{seed()};
     std::uniform_int_distribution dist{65 , 90};
@@ -16,9 +15,17 @@ std::string monoalphabeticCipher(std::string &message){
         randomCharactersPositions.insert(randomAlphabet);
     }
 
-    for(auto x : randomCharactersPositions)
+    return randomCharactersPositions;
+
+}
+
+std::string monoalphabeticCipher(std::string &message){
+
+    std::unordered_set<char> characterMap = randomCharacterOrderGenerator();
+
+    for(auto x : characterMap)
         std::cout<<x<<std::endl;
-    
+
 
     return message;
 
