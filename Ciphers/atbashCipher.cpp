@@ -1,4 +1,9 @@
 #include<iostream>
+#include<algorithm>
+
+std::string atbash(std::string &message){
+
+}
 
 
 
