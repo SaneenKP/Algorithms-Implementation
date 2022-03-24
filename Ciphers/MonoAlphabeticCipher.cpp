@@ -6,23 +6,17 @@ std::string monoalphabeticCipher(std::string &message){
 
     std::unordered_set<int> randomCharactersPositions;
 
-    while (randomCharactersPositions.size() != 26)
+    std::random_device seed;
+    std::mt19937 gen{seed()};
+    std::uniform_int_distribution dist{65 , 90};
+
+    for (int i = 0; i < 10; i++)
     {
-        int randomAlphabetPosition = (65 + (rand() % 90));
-        randomCharactersPositions.insert(randomAlphabetPosition);
+        int randomAlphabetPosition = dist(gen);
+        std::cout<<randomAlphabetPosition<<std::endl;
     }
-    
-    for(auto x : randomCharactersPositions){
-        std::cout<<x<<std::endl;
-    }
-    
-
-    
-
     
     return message;
-
-    
 
 }
 
