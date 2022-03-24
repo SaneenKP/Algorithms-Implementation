@@ -1,5 +1,7 @@
 #include<iostream>
 
+
+
 int main(){
     std::string message;
     std::string cipher;
