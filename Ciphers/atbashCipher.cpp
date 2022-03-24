@@ -22,6 +22,6 @@ int main(){
     std::cin>>message;
 
     cipher = atbash(message);
-    std::cout<<"Cipher message = "<<cipher;
+    std::cout<<"Cipher message = "<<cipher<<"\n";
 
 }
