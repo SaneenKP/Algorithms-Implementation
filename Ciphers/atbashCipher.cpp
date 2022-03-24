@@ -2,8 +2,14 @@
 #include<algorithm>
 
 std::string atbash(std::string &message){
-    std::transform(message.begin() , message.end() , message.begin() , ::toupper);
+    for (int i = 0; i < message.length();++i){
+        if (message[i] > 90)
+            message[i] = (90 - ((message[i] - 32)-65));
+    }
+
     return message;
+    
+
 }
 
 
