@@ -2,7 +2,8 @@
 #include<algorithm>
 
 std::string atbash(std::string &message){
-
+    std::transform(message.begin() , message.end() , message.begin() , ::toupper);
+    return message;
 }
 
 
