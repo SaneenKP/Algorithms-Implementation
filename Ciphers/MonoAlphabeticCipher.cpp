@@ -23,8 +23,14 @@ std::string monoalphabeticCipher(std::string &message){
 
     std::unordered_set<char> characterMap = randomCharacterOrderGenerator();
 
-    for(auto x : characterMap)
-        std::cout<<x<<std::endl;
+    std::unordered_set<char>::iterator characterMapIterator = characterMap.begin();
+
+    for (int i = 0; i < message.length(); ++i)
+    {
+        std::cout<<*std::next(characterMap.begin() , (message[i] - 'a'))<<std::endl;
+    }
+    
+
 
 
     return message;
