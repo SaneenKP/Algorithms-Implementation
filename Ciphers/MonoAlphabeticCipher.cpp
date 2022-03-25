@@ -1,18 +1,23 @@
 #include<iostream>
-#include <unordered_set>
+#include<unordered_map>
 #include<random>
 
-std::unordered_set<char> randomCharacterOrderGenerator(){
+std::unordered_map<int , int> randomCharacterOrderGenerator(){
 
-    std::unordered_set<char> randomCharactersPositions;
+    std::unordered_map<int,int> randomCharactersPositions;
     std::random_device seed;
     std::mt19937 gen{seed()};
     std::uniform_int_distribution dist{65 , 90};
 
-    while (randomCharactersPositions.size() != 26)
+    int alphabets = 65;
+    while (alphabets <= 90)
     {
         int randomAlphabet = dist(gen);
-        randomCharactersPositions.insert(randomAlphabet);
+        if (randomCharactersPositions.find(randomAlphabet) == randomCharactersPositions.end())
+        {
+            randomCharactersPositions[randomAlphabet] = alphabets;
+            alphabets++;
+        }
     }
 
     return randomCharactersPositions;
@@ -21,18 +26,11 @@ std::unordered_set<char> randomCharacterOrderGenerator(){
 
 std::string monoalphabeticCipher(std::string &message){
 
-    std::unordered_set<char> characterMap = randomCharacterOrderGenerator();
-
-    std::unordered_set<char>::iterator characterMapIterator = characterMap.begin();
-
-    for (int i = 0; i < message.length(); ++i)
-    {
-        std::cout<<*std::next(characterMap.begin() , (message[i] - 'a'))<<std::endl;
+    std::unordered_map<int , int> characterMap = randomCharacterOrderGenerator();
+    for(auto x : characterMap){
+        std::cout<<x.first<<"   "<<x.second<<std::endl;
     }
     
-
-
-
     return message;
 
 }
