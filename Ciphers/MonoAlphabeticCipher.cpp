@@ -39,12 +39,8 @@ std::unordered_map<int , int> randomCharacterOrderGenerator(){
 std::string monoalphabeticCipher(std::string &message){
 
     std::unordered_map<int , int> characterMap = randomCharacterOrderGenerator();
-    // for (int i = 0; i < message.length(); i++)
-    // {
-    //     std::cout<<characterMap[(int)message[i]]<<std::endl;
-    // }
-
-    std::cout<<characterMap.size();
+    for (int i = 0; i < message.length(); i++)
+        message[i] = characterMap[message[i]];
     
     return message;
 
