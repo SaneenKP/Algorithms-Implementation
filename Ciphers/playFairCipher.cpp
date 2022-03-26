@@ -1,10 +1,25 @@
 #include<iostream>
+#include<vector>
+
+void display(std::vector<std::vector<int>> &keyMatrix){
+   for(auto x  : keyMatrix){
+       for(auto y : x){
+           std::cout<<y<<"  ";
+       }
+       std::cout<<"\n";
+   }
+}
 
 std::string playFairCipher(std::string &message , std::string key){
 
 
+    std::vector<std::vector<int>> keyMatrix(5 , std::vector<int>(5,0));
+    display(keyMatrix);
+
+    return message;
 
 }
+
 
 int main(){
     std::string message;
@@ -19,6 +34,6 @@ int main(){
 
     cipher = playFairCipher(message , key);
 
-    std::cout<<"\n Cipher Text = "<<cipher<<std::endl;
+    std::cout<<"\nCipher Text = "<<cipher<<std::endl;
 
 }
