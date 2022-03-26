@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 
-void display(std::vector<std::vector<int>> &keyMatrix){
+void display(std::vector<std::vector<char>> &keyMatrix){
    for(auto x  : keyMatrix){
        for(auto y : x){
            std::cout<<y<<"  ";
@@ -13,7 +13,7 @@ void display(std::vector<std::vector<int>> &keyMatrix){
 std::string playFairCipher(std::string &message , std::string key){
 
 
-    std::vector<std::vector<int>> keyMatrix(5 , std::vector<int>(5,0));
+    std::vector<std::vector<char>> keyMatrix(5 , std::vector<char>(5));
     display(keyMatrix);
 
     return message;
