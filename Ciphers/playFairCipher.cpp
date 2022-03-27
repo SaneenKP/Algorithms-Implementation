@@ -13,40 +13,50 @@ void display(std::vector<std::vector<char>> &keyMatrix){
 std::vector<std::vector<char>> fillKeyMatrix(std::vector<std::vector<char>> &keyMatrix , std::string key){
 
    bool keyalphabetsoccurrence[26]{false};
+   int noOfRestAlphabets = (26 - key.length());
+   char restAlphabetList[noOfRestAlphabets];
 
    for (int i = 0; i < key.length(); ++i){
-       if (key[i] <= 92)
-           keyalphabetsoccurrence[key[i] - 65] = true;
-       if (key[i] >= 97)
-           keyalphabetsoccurrence[key[i] - 97] = true;
+       keyalphabetsoccurrence[key[i] - 97] = true;
    }
-    
-    for (int i = 0; i < 26; ++i)
-    {
-        std::cout<<keyalphabetsoccurrence[i]<<std::endl;
-    }
-    
+
+   int j = 0;
+   for (int i = 0; i < 26; ++i)
+   {
+       if (keyalphabetsoccurrence[i])
+       {
+           keyalphabetsoccurrence[i] = false;
+       }else{
+           restAlphabetList[j] = i+97;
+           j++;
+       }
+   }
    
-//    int keyCount = 0;
-//    for(auto x  : keyMatrix){
-//        for(auto y : x){
-//            if (keyCount < key.length())
-//            {
-//                 if (!keyalphabetsoccurrence[y])
-//                 {
-//                     y = key[keyCount];
-//                     keyalphabetsoccurrence[y] = true;
-//                     keyCount++;
-//                 }
-//            }else{
+   int keyPointer = 0;
+   for (int i = 0; i < keyMatrix.size(); i++)
+   {
+       for (int j = 0; j < keyMatrix[0].size(); ++j)
+       {
+                if (keyPointer != key.length())
+                {
+                    int keyPosition = key[keyPointer] - 97;
+                    if (!keyalphabetsoccurrence[(key[keyPointer]-97)])
+                    {
+                        keyMatrix[i][j] = key[keyPointer];
+                        keyalphabetsoccurrence[(key[keyPointer]-97)] = true;
+                        keyPointer++;
+                    }else{
+                        keyMatrix[i][j] = 'Z';
 
-//            }
-           
-//        }
-//    }
-
-
-    return keyMatrix;
+                    }
+                    
+                }else{
+                }
+       }
+       
+   }
+   display(keyMatrix);
+   return keyMatrix;
 
 }
 
