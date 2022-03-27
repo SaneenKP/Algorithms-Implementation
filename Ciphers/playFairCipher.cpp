@@ -33,10 +33,14 @@ std::vector<std::vector<char>> fillKeyMatrix(std::vector<std::vector<char>> &key
    }
    
    int keyPointer = 0;
+   int alphabetPointer = 0;
    for (int i = 0; i < keyMatrix.size(); i++)
    {
        for (int j = 0; j < keyMatrix[0].size(); ++j)
        {
+                if (i == 2 && j == 4)
+                    alphabetPointer++;
+                
                 if (keyPointer != key.length())
                 {
                     int keyPosition = key[keyPointer] - 97;
@@ -44,13 +48,14 @@ std::vector<std::vector<char>> fillKeyMatrix(std::vector<std::vector<char>> &key
                     {
                         keyMatrix[i][j] = key[keyPointer];
                         keyalphabetsoccurrence[(key[keyPointer]-97)] = true;
-                        keyPointer++;
                     }else{
-                        keyMatrix[i][j] = 'Z';
-
+                        keyMatrix[i][j] = restAlphabetList[alphabetPointer];
+                        alphabetPointer++;
                     }
-                    
+                    keyPointer++;
                 }else{
+                    keyMatrix[i][j] = restAlphabetList[alphabetPointer];
+                    alphabetPointer++;
                 }
        }
        
