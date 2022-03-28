@@ -14,7 +14,7 @@ std::vector<std::vector<char>> fillKeyMatrix(std::vector<std::vector<char>> &key
 
    bool keyalphabetsoccurrence[26]{false};
    int noOfRestAlphabets = (26 - key.length());
-   char restAlphabetList[noOfRestAlphabets];
+   int restAlphabetList[noOfRestAlphabets];
 
    for (int i = 0; i < key.length(); ++i){
        keyalphabetsoccurrence[key[i] - 97] = true;
@@ -60,7 +60,6 @@ std::vector<std::vector<char>> fillKeyMatrix(std::vector<std::vector<char>> &key
        }
        
    }
-   display(keyMatrix);
    return keyMatrix;
 
 }
@@ -70,9 +69,8 @@ std::string playFairCipher(std::string &message , std::string key){
 
     std::vector<std::vector<char>> keyMatrix(5 , std::vector<char>(5));
     keyMatrix = fillKeyMatrix(keyMatrix , key);
+    display(keyMatrix);
     
-
-
     return message;
 
 }
