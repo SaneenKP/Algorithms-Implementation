@@ -18,7 +18,7 @@ std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMa
    int restAlphabetList[noOfRestAlphabets];
 
    for (int i = 0; i < key.length(); ++i){
-       keyalphabetsoccurrence[key[i] - 97] = true;
+       keyalphabetsoccurrence[key[i] - 65] = true;
    }
 
    int j = 0;
@@ -28,7 +28,7 @@ std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMa
        {
            keyalphabetsoccurrence[i] = false;
        }else{
-           restAlphabetList[j] = i+97;
+           restAlphabetList[j] = i+65;
            j++;
        }
    }
@@ -43,11 +43,11 @@ std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMa
 
                 if (keyPointer != key.length())
                 {
-                    int keyPosition = key[keyPointer] - 97;
-                    if (!keyalphabetsoccurrence[(key[keyPointer]-97)])
+                    int keyPosition = key[keyPointer] - 65;
+                    if (!keyalphabetsoccurrence[(key[keyPointer]-65)])
                     {
                         keyMatrix[i][j] = key[keyPointer];
-                        keyalphabetsoccurrence[(key[keyPointer]-97)] = true;
+                        keyalphabetsoccurrence[(key[keyPointer]-65)] = true;
                     }else{
                         keyMatrix[i][j] = restAlphabetList[alphabetPointer];
                         alphabetPointer++;
