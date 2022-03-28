@@ -57,8 +57,12 @@ std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMa
 
                     if (i == 2 && j == 3)
                     {    
+                        keyMatrix[i][j] = restAlphabetList[alphabetPointer]*100;
+                        alphabetPointer++;
+                        keyMatrix[i][j] += restAlphabetList[alphabetPointer];
+                    }else{
+                        keyMatrix[i][j] = restAlphabetList[alphabetPointer];
                     }
-                    keyMatrix[i][j] = restAlphabetList[alphabetPointer];
                     alphabetPointer++;
                 }
 
