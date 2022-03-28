@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 
 void display(std::vector<std::vector<int>> &keyMatrix){
    for(auto x  : keyMatrix){
@@ -92,6 +93,8 @@ int main(){
     std::cout<<"\nEnter key : ";
     std::cin>>key;
 
+    std::transform(key.begin() , key.end() , key.begin() , ::toupper);
+    std::transform(message.begin() , message.end() , message.begin() , ::toupper);
     cipher = playFairCipher(message , key);
 
     std::cout<<"\nCipher Text = "<<cipher<<std::endl;
