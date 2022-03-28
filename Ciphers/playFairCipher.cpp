@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 
-void display(std::vector<std::vector<char>> &keyMatrix){
+void display(std::vector<std::vector<int>> &keyMatrix){
    for(auto x  : keyMatrix){
        for(auto y : x){
            std::cout<<y<<"  ";
@@ -10,7 +10,7 @@ void display(std::vector<std::vector<char>> &keyMatrix){
    }
 }
 
-std::vector<std::vector<char>> fillKeyMatrix(std::vector<std::vector<char>> &keyMatrix , std::string key){
+std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMatrix , std::string key){
 
    bool keyalphabetsoccurrence[26]{false};
    int noOfRestAlphabets = (26 - key.length());
@@ -38,9 +38,8 @@ std::vector<std::vector<char>> fillKeyMatrix(std::vector<std::vector<char>> &key
    {
        for (int j = 0; j < keyMatrix[0].size(); ++j)
        {
-                if (i == 2 && j == 4)
-                    alphabetPointer++;
                 
+
                 if (keyPointer != key.length())
                 {
                     int keyPosition = key[keyPointer] - 97;
@@ -57,6 +56,12 @@ std::vector<std::vector<char>> fillKeyMatrix(std::vector<std::vector<char>> &key
                     keyMatrix[i][j] = restAlphabetList[alphabetPointer];
                     alphabetPointer++;
                 }
+
+                if (i == 2 && j == 3)
+                {
+                    alphabetPointer++;
+                }
+                
        }
        
    }
@@ -67,7 +72,7 @@ std::vector<std::vector<char>> fillKeyMatrix(std::vector<std::vector<char>> &key
 std::string playFairCipher(std::string &message , std::string key){
 
 
-    std::vector<std::vector<char>> keyMatrix(5 , std::vector<char>(5));
+    std::vector<std::vector<int>> keyMatrix(5 , std::vector<int>(5));
     keyMatrix = fillKeyMatrix(keyMatrix , key);
     display(keyMatrix);
     
