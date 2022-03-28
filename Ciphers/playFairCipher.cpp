@@ -49,19 +49,19 @@ std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMa
                         keyMatrix[i][j] = key[keyPointer];
                         keyalphabetsoccurrence[(key[keyPointer]-65)] = true;
                     }else{
-                        keyMatrix[i][j] = restAlphabetList[alphabetPointer];
-                        alphabetPointer++;
+                        keyPointer++;
+                        keyMatrix[i][j] = key[keyPointer];
                     }
                     keyPointer++;
                 }else{
+
+                    if (i == 2 && j == 3)
+                    {    
+                    }
                     keyMatrix[i][j] = restAlphabetList[alphabetPointer];
                     alphabetPointer++;
                 }
 
-                if (i == 2 && j == 3)
-                {
-                    alphabetPointer++;
-                }
                 
        }
        
