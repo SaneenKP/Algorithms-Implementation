@@ -113,6 +113,13 @@ std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMa
 
 std::string encrypt(std::vector<char> digrams, std::vector<std::vector<char>> &keyMatrix){
 
+    std::string cipher = "";
+
+    for (int i = 0; i < digrams.size(); ++i)
+    {
+        /* code */
+    }
+    
 
 }
 
