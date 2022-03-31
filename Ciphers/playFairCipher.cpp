@@ -13,21 +13,25 @@ void display(std::vector<std::vector<int>> &keyMatrix){
 
 std::vector<char> generateDigrams(std::string message){
 
-    std::vector<char> digrams;
-    char repeat = message[0];
+    std::vector<char> digrams; //Vector array to store the digrams.
+    char a , b;                //Pointers to check for similarity.
 
-    char a , b;
 
     for (int i = 0; i < message.length(); i+=2)
     {
+        //if pointer at the end and only 1 character left . Then add 'z' at the end.
         if (i < message.length() - 1)
         {
             a = message[i];
             b = message[i+1];
+
         }else{
             a = message[i];
             b = 'Z';
         }
+
+        //if both pointers have same characters then push the first character and 'x'.
+        //else push both the characters as they can form a digram.
         if (a == b)
         {
             digrams.push_back(message[i]);
@@ -39,14 +43,6 @@ std::vector<char> generateDigrams(std::string message){
         }
         
     }
-    
-    
-
-    
-    for(auto x:digrams){
-        std::cout<<x<<std::endl;
-    }
-    
     
     return digrams;
 
