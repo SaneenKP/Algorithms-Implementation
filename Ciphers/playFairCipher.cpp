@@ -11,6 +11,47 @@ void display(std::vector<std::vector<int>> &keyMatrix){
    }
 }
 
+std::vector<char> generateDigrams(std::string message){
+
+    std::vector<char> digrams;
+    char repeat = message[0];
+
+    char a , b;
+
+    for (int i = 0; i < message.length(); i+=2)
+    {
+        if (i < message.length() - 1)
+        {
+            a = message[i];
+            b = message[i+1];
+        }else{
+            a = message[i];
+            b = 'Z';
+        }
+        if (a == b)
+        {
+            digrams.push_back(message[i]);
+            digrams.push_back('x');
+            i-=1;
+        }else{
+            digrams.push_back(a);
+            digrams.push_back(b);
+        }
+        
+    }
+    
+    
+
+    
+    for(auto x:digrams){
+        std::cout<<x<<std::endl;
+    }
+    
+    
+    return digrams;
+
+}
+
 std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMatrix , std::string key){
 
    bool keyalphabetsoccurrence[26]{false};
@@ -80,6 +121,8 @@ std::string playFairCipher(std::string &message , std::string key){
     std::vector<std::vector<int>> keyMatrix(5 , std::vector<int>(5));
     keyMatrix = fillKeyMatrix(keyMatrix , key);
     display(keyMatrix);
+
+    generateDigrams(message);
     
     return message;
 
