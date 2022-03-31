@@ -111,28 +111,15 @@ std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMa
 
 }
 
-std::string encrypt(std::vector<char> digrams, std::vector<std::vector<char>> &keyMatrix){
-
-    std::string cipher = "";
-
-    for (int i = 0; i < digrams.size(); ++i)
-    {
-        /* code */
-    }
-    
-
-}
-
 std::string playFairCipher(std::string &message , std::string key){
 
     std::string cipher;
+
     std::vector<std::vector<int>> keyMatrix(5 , std::vector<int>(5));
     std::vector<char> digrams;
 
     keyMatrix = fillKeyMatrix(keyMatrix , key);
     digrams = generateDigrams(message);
-
-    cipher = encrypt(digrams , keyMatrix);
     
     return cipher;
 
