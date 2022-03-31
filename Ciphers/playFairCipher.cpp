@@ -112,6 +112,25 @@ std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMa
 }
 
 void searchKeyPosition(int first , int second , int &firstLetterPosition_i , int &firstLetterPosition_j , int &secondLetterPosition_i , int &secondLetterPosition_j , std::vector<std::vector<int>> &keyMatrix){
+
+    for (int i = 0; i < keyMatrix.size(); ++i)
+    {
+        for (int j = 0; j < keyMatrix[0].size(); ++j) {
+
+            if (keyMatrix[i][j] == first)
+            {
+                firstLetterPosition_i = i;
+                firstLetterPosition_j = j;
+            }
+            else if (keyMatrix[i][j] == second)
+            {
+                secondLetterPosition_i = i; 
+                secondLetterPosition_j = j;
+            }
+            
+        }
+        
+    }
     
 }
 
@@ -127,6 +146,7 @@ std::string encrypt(std::vector<char> &digrams , std::vector<std::vector<int>> &
     for (int i = 0; i < digrams.size(); i+=2)
     {
        searchKeyPosition(digrams[i] , digrams[i+1] , firstLetterPosition_i , firstLetterPosition_j , secondLetterPosition_i , secondLetterPosition_j , keyMatrix);
+       std::cout<<firstLetterPosition_i<<firstLetterPosition_j<<" - "<<secondLetterPosition_i<<secondLetterPosition_j<<std::endl;
     }
     
     return "";
@@ -144,6 +164,7 @@ std::string playFairCipher(std::string &message , std::string key){
 
     keyMatrix = fillKeyMatrix(keyMatrix , key);
     digrams = generateDigrams(message);
+    display(keyMatrix);
     cipher = encrypt(digrams , keyMatrix);
 
     
