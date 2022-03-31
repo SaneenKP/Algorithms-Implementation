@@ -115,10 +115,15 @@ std::string playFairCipher(std::string &message , std::string key){
 
 
     std::vector<std::vector<int>> keyMatrix(5 , std::vector<int>(5));
+    std::vector<char> digrams;
     keyMatrix = fillKeyMatrix(keyMatrix , key);
     display(keyMatrix);
+    digrams = generateDigrams(message);
 
-    generateDigrams(message);
+    for(auto x : digrams){
+        std::cout<<x<<std::endl;
+    }
+    
     
     return message;
 
