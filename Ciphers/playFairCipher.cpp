@@ -111,9 +111,6 @@ std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMa
 
 }
 
-std::vector<int> getDigramPositions(std::vector<std::vector<int>> &keyMatrix , std::vector<char> &digrams){
-
-}
 
 std::string playFairCipher(std::string &message , std::string key){
 
@@ -121,11 +118,9 @@ std::string playFairCipher(std::string &message , std::string key){
 
     std::vector<std::vector<int>> keyMatrix(5 , std::vector<int>(5));
     std::vector<char> digrams;
-    std::vector<int> positions;
 
     keyMatrix = fillKeyMatrix(keyMatrix , key);
     digrams = generateDigrams(message);
-    positions = getDigramPositions(keyMatrix , digrams);
 
     
     return cipher;
