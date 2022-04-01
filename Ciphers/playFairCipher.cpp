@@ -143,13 +143,21 @@ std::string encrypt(std::vector<char> &digrams , std::vector<std::vector<int>> &
     int secondLetterPosition_i = 0;
     int secondLetterPosition_j = 0;
 
+    std::string cipher = "";
+
     for (int i = 0; i < digrams.size(); i+=2)
     {
        searchKeyPosition(digrams[i] , digrams[i+1] , firstLetterPosition_i , firstLetterPosition_j , secondLetterPosition_i , secondLetterPosition_j , keyMatrix);
+
+       if (firstLetterPosition_i != secondLetterPosition_i && firstLetterPosition_j != secondLetterPosition_j)
+       {
+           cipher += (char)(keyMatrix[firstLetterPosition_i][secondLetterPosition_j]);
+           cipher += (char)(keyMatrix[secondLetterPosition_i][firstLetterPosition_j]);
+       }
+       
     }
     
-    return "";
-
+    return cipher;
 }
 
 
@@ -165,7 +173,6 @@ std::string playFairCipher(std::string &message , std::string key){
     digrams = generateDigrams(message);
     cipher = encrypt(digrams , keyMatrix);
 
-    
     return cipher;
 
 }
