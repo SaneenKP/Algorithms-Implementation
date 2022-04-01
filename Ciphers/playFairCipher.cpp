@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<string>
 
 std::vector<char> generateDigrams(std::string message){
 
@@ -204,13 +205,16 @@ int main(){
     std::string key;
 
     std::cout<<"Enter the message : ";
-    std::cin>>message;
+    getline(std::cin , message);
+
+    std::cout<<message;
 
     std::cout<<"\nEnter key : ";
     std::cin>>key;
 
     std::transform(key.begin() , key.end() , key.begin() , ::toupper);
     std::transform(message.begin() , message.end() , message.begin() , ::toupper);
+
     cipher = playFairCipher(message , key);
 
     std::cout<<"\nCipher Text = "<<cipher<<std::endl;
