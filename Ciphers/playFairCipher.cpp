@@ -2,15 +2,6 @@
 #include<vector>
 #include<algorithm>
 
-void display(std::vector<std::vector<int>> &keyMatrix){
-   for(auto x  : keyMatrix){
-       for(auto y : x){
-           std::cout<<y<<"  ";
-       }
-       std::cout<<"\n";
-   }
-}
-
 std::vector<char> generateDigrams(std::string message){
 
     std::vector<char> digrams; //Vector array to store the digrams.
