@@ -174,6 +174,16 @@ std::string encrypt(std::vector<char> &digrams , std::vector<std::vector<int>> &
            secondCipherPosition_i = secondLetterPosition_i;
            secondCipherPosition_j = (secondLetterPosition_j + 1) > 4 ? 0 : (secondLetterPosition_j + 1);
        }
+
+       if (firstLetterPosition_i != secondLetterPosition_i && firstLetterPosition_j == secondLetterPosition_j)
+       {
+           firstCipherPosition_i = (firstLetterPosition_i + 1) > 4 ? 0 : (firstLetterPosition_i + 1);
+           firstCipherPosition_j = firstLetterPosition_j;
+
+           secondCipherPosition_i = (secondLetterPosition_i + 1) > 4 ? 0 : (secondLetterPosition_i + 1);
+           secondCipherPosition_j = secondLetterPosition_j;
+       }
+       
        
        cipher = cipher + (char)(keyMatrix[firstCipherPosition_i][firstCipherPosition_j]) + (char)(keyMatrix[secondCipherPosition_i][secondCipherPosition_j]);
 
