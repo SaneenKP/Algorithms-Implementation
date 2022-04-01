@@ -85,9 +85,9 @@ std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMa
 
                     if (i == 2 && j == 3)
                     {    
-                        keyMatrix[i][j] = restAlphabetList[alphabetPointer]*100;
-                        alphabetPointer++;
+                        //keyMatrix[i][j] = restAlphabetList[alphabetPointer]*100;
                         keyMatrix[i][j] += restAlphabetList[alphabetPointer];
+                        alphabetPointer++;
                     }else{
                         keyMatrix[i][j] = restAlphabetList[alphabetPointer];
                     }
@@ -124,7 +124,6 @@ void searchKeyPosition(int first , int second , int &firstLetterPosition_i , int
     }
     
 }
-
 
 std::string encrypt(std::vector<char> &digrams , std::vector<std::vector<int>> &keyMatrix){
 
@@ -182,8 +181,6 @@ std::string encrypt(std::vector<char> &digrams , std::vector<std::vector<int>> &
     
     return cipher;
 }
-
-
 
 std::string playFairCipher(std::string &message , std::string key){
 
