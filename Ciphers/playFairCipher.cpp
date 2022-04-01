@@ -145,16 +145,38 @@ std::string encrypt(std::vector<char> &digrams , std::vector<std::vector<int>> &
 
     std::string cipher = "";
 
+    int firstCipherPosition_i = 0;
+    int firstCipherPosition_j = 0;
+
+    int secondCipherPosition_i = 0;
+    int secondCipherPosition_j = 0;
+
     for (int i = 0; i < digrams.size(); i+=2)
     {
        searchKeyPosition(digrams[i] , digrams[i+1] , firstLetterPosition_i , firstLetterPosition_j , secondLetterPosition_i , secondLetterPosition_j , keyMatrix);
 
+
        if (firstLetterPosition_i != secondLetterPosition_i && firstLetterPosition_j != secondLetterPosition_j)
        {
-           cipher += (char)(keyMatrix[firstLetterPosition_i][secondLetterPosition_j]);
-           cipher += (char)(keyMatrix[secondLetterPosition_i][firstLetterPosition_j]);
+
+           firstCipherPosition_i = firstLetterPosition_i;
+           firstCipherPosition_j = secondLetterPosition_j;
+
+           secondCipherPosition_i = secondLetterPosition_i;
+           secondCipherPosition_j = firstLetterPosition_j;
+       }
+
+       if (firstLetterPosition_i == secondLetterPosition_i && firstLetterPosition_j != secondLetterPosition_j)
+       {
+           firstCipherPosition_i = firstLetterPosition_i;
+           firstCipherPosition_j = (firstLetterPosition_j + 1) > 4 ? 0 : (firstLetterPosition_j + 1);
+
+           secondCipherPosition_i = secondLetterPosition_i;
+           secondCipherPosition_j = (secondLetterPosition_j + 1) > 4 ? 0 : (secondLetterPosition_j + 1);
        }
        
+       cipher = cipher + (char)(keyMatrix[firstCipherPosition_i][firstCipherPosition_j]) + (char)(keyMatrix[secondCipherPosition_i][secondCipherPosition_j]);
+
     }
     
     return cipher;
