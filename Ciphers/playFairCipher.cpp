@@ -198,6 +198,17 @@ std::string playFairCipher(std::string &message , std::string key){
 
 }
 
+std::string removeWhiteSpace(std::string message){
+
+    std::string finalMessage = "";
+    for (int i = 0; i < message.length(); ++i)
+    {
+        if (message[i] == ' ')
+            continue;
+        finalMessage += message[i];
+    }
+    return finalMessage; 
+}
 
 int main(){
     std::string message;
@@ -207,7 +218,7 @@ int main(){
     std::cout<<"Enter the message : ";
     getline(std::cin , message);
 
-    std::cout<<message;
+    message = removeWhiteSpace(message);
 
     std::cout<<"\nEnter key : ";
     std::cin>>key;
