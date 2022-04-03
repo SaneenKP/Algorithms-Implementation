@@ -44,9 +44,9 @@ std::vector<char> generateDigrams(std::string message){
 //function to fill matrix with key alphabets and other alphabets.
 std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMatrix , std::string key){
 
-   bool keyalphabetsoccurrence[26]{false};
-   int noOfRestAlphabets = (26 - key.length());
-   int restAlphabetList[noOfRestAlphabets];
+   bool keyalphabetsoccurrence[26]{false};               // array to store occurrences of key alphabets.
+   int noOfRestAlphabets = (26 - key.length());         // total no of alphabets left other than the key alphabets.
+   int restAlphabetList[noOfRestAlphabets];             // array to store the ASCII integer values of rest of the alphabets.
 
    for (int i = 0; i < key.length(); ++i){
        keyalphabetsoccurrence[key[i] - 65] = true;
