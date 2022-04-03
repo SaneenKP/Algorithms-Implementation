@@ -40,6 +40,8 @@ std::vector<char> generateDigrams(std::string message){
 
 }
 
+
+//function to fill matrix with key alphabets and other alphabets.
 std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMatrix , std::string key){
 
    bool keyalphabetsoccurrence[26]{false};
@@ -211,6 +213,7 @@ std::string removeWhiteSpace(std::string message){
 }
 
 int main(){
+
     std::string message;
     std::string cipher;
     std::string key;
