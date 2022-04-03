@@ -48,18 +48,20 @@ std::vector<std::vector<int>> fillKeyMatrix(std::vector<std::vector<int>> &keyMa
    int noOfRestAlphabets = (26 - key.length());         // total no of alphabets left other than the key alphabets.
    int restAlphabetList[noOfRestAlphabets];             // array to store the ASCII integer values of rest of the alphabets.
 
+   //fill the occurrences of key alphabets.
    for (int i = 0; i < key.length(); ++i){
        keyalphabetsoccurrence[key[i] - 65] = true;
    }
 
-   int j = 0;
+   //fill the rest of the alphabets.
+   int j = 0;                                           // j pointer to iterate the restalphabet. 
    for (int i = 0; i < 26; ++i)
    {
        if (keyalphabetsoccurrence[i])
        {
-           keyalphabetsoccurrence[i] = false;
+           keyalphabetsoccurrence[i] = false;           // if alphabet found in key , make it false so that the array can be used again in future.
        }else{
-           restAlphabetList[j] = i+65;
+           restAlphabetList[j] = i+65;                  // store the rest of the alphabet.
            j++;
        }
    }
