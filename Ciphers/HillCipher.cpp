@@ -27,12 +27,6 @@ std::string hillCipher(std::string &message , int &termFrequency){
 
     std::vector<std::vector<int>> keyMatrix = generateKey(termFrequency);
     
-    for(auto x : keyMatrix){
-        for(auto y : x){
-            std::cout<<y<<" ";
-        }
-        std::cout<<"\n";
-    }
     return "";
 }
 
