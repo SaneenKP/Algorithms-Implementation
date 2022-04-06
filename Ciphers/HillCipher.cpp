@@ -1,6 +1,12 @@
 #include<iostream>
 #include<algorithm>
 
+std::string hillCipher(std::string &message){
+
+    
+
+}
+
 std::string removeWhiteSpace(std::string message){
 
     std::string finalMessage = "";
@@ -30,7 +36,7 @@ int main(){
     std::transform(key.begin() , key.end() , key.begin() , ::toupper);
     std::transform(message.begin() , message.end() , message.begin() , ::toupper);
 
-    cipher = HillCipher(message , key);
+    cipher = hillCipher(message);
 
     std::cout<<"\nCipher Text = "<<cipher<<std::endl;
 }
