@@ -1,8 +1,11 @@
 #include<iostream>
 #include<algorithm>
+#include<vector>
 
-std::string hillCipher(std::string &message){
 
+std::string hillCipher(std::string &message , int termFrequency){
+
+    std::vector<std::vector<int>> keyMatrix = generateKey(termFrequency);
     
 
 }
