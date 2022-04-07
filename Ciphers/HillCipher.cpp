@@ -23,10 +23,26 @@ std::vector<std::vector<int>> generateKey(int termFrequency){
 
 }
 
+std::vector<int> generateMessageValues(std::string &message , int &termFrequency){
+
+
+    int remaining = message.length() % termFrequency;
+    while (remaining-- != 0)
+        message.push_back('X');
+    
+    std::vector<int> messageValues;
+
+    for (int i = 0; i < message.length(); ++i)
+        messageValues.push_back(message[i] - 65);
+    
+    return messageValues;
+}
+
 std::string hillCipher(std::string &message , int &termFrequency){
 
     std::vector<std::vector<int>> keyMatrix = generateKey(termFrequency);
-    
+    std::vector<int> messageValues = generateMessageValues(message , termFrequency);
+
     return "";
 }
 
