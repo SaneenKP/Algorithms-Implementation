@@ -37,10 +37,10 @@ std::vector<int> generateMessageValues(std::string &message , int &termFrequency
     return messageValues;
 }
 
-std::vector<int> multiplyMatrix(std::vector<int> term , std::vector<std::vector<int>> &keyMatrix){
+std::vector<int> multiplyMatrix(int termFrequency, std::vector<int> term , std::vector<std::vector<int>> &keyMatrix){
 
-    std::vector<int> result(term.size(),0);
-    for (int i = 0; i < term.size(); ++i)
+    std::vector<int> result(termFrequency,0);
+    for (int i = 0; i < termFrequency; ++i)
     {
         for (int j = 0; j < keyMatrix.size(); ++j)
         {
@@ -51,19 +51,31 @@ std::vector<int> multiplyMatrix(std::vector<int> term , std::vector<std::vector<
     return result;
 }
 
+void fillCipherValues(std::vector<int> term , std::vector<int> &cipherValues){
+    
+}
+
 std::string hillCipher(std::string &message , int &termFrequency){
 
     
-    // std::vector<std::vector<int>> keyMatrix = generateKey(termFrequency);
-    // std::vector<int> messageValues = generateMessageValues(message , termFrequency);
-    std::vector<int> cipherValues{1 , 2 , 3} ;
-    std::vector<std::vector<int>> test{{1 , 2 , 3} , {4, 5 , 6} , {7 , 8 , 9}};
+    std::vector<std::vector<int>> keyMatrix = generateKey(termFrequency);
+    std::vector<int> messageValues = generateMessageValues(message , termFrequency);
+    std::vector<int> cipherValues;
 
-    cipherValues = multiplyMatrix(cipherValues , test);
-
-    for(auto x : cipherValues){
-        std::cout<<x<<" ";
+    std::vector<int> term(termFrequency,0);
+    for (int i = 0; i < messageValues.size(); ++i)
+    {
+        if (i == (termFrequency-1))
+        {
+            term = multiplyMatrix(termFrequency ,  term , keyMatrix);
+        }else{
+            term.push_back(messageValues[i]);
+        }
+        
     }
+    
+
+
     return "";
 }
 
