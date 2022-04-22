@@ -13,6 +13,7 @@ class HillCipher{
 
     public: 
 
+    //method to generate random number for keyMatrix.
     void generateKey(){
 
         std::vector<std::vector<int>> keyMatrix(termFrequency,std::vector<int>(termFrequency,0));
@@ -116,8 +117,5 @@ int main(){
     std::cin>>termFrequency;
 
     hillcipher.setTermFrequency(termFrequency);
-
-    hillcipher.generateKey();
-    hillcipher.display();
 
 }
