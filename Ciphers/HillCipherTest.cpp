@@ -50,17 +50,20 @@ class HillCipher{
     }
 
     std::string getMessage(){
-        return message;
+        return this->message;
     } 
 
     std::string getCipher(){
-        return cipher;
+        return this->cipher;
     }
 
     int getTermFrequency(){
-        return termFrequency;
+        return this->termFrequency;
     }
 
+    std::vector<std::vector<int>> getKeyMatrix(){
+        return this->keyMatrix;
+    }
 
 
 };
