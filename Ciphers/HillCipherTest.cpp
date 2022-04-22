@@ -9,7 +9,22 @@ class HillCipher{
 
     public: 
 
-    
+    std::string tranformMessage(std::string message){
+
+        std::string finalMessage = "";
+        for (int i = 0; i < message.length(); ++i)
+        {
+            if (message[i] >= 97 && message[i] <= 122)
+                message[i] = message[i] - 32;
+            
+            if (message[i] == ' ')
+                continue;
+            finalMessage += message[i];
+        }
+
+        return finalMessage;
+
+    }
 
 
     //getters and setters
@@ -50,10 +65,10 @@ int main(){
 
     hillcipher.setMessage(message);
 
+
     std::cout<<"Enter the termFrequency : ";
     std::cin>>termFrequency;
 
     hillcipher.setTermFrequency(termFrequency);
-
 
 }
