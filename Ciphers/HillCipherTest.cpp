@@ -137,6 +137,4 @@ int main(){
 
     hillcipher.setTermFrequency(termFrequency);
 
-    hillcipher.encrypt();
-
 }
