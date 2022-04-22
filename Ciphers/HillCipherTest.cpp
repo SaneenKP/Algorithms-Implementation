@@ -14,9 +14,11 @@ class HillCipher{
         std::string finalMessage = "";
         for (int i = 0; i < message.length(); ++i)
         {
+            //Change small to capital
             if (message[i] >= 97 && message[i] <= 122)
                 message[i] = message[i] - 32;
             
+            //remove spaces
             if (message[i] == ' ')
                 continue;
             finalMessage += message[i];
