@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 
 class HillCipher{
 
@@ -6,6 +7,8 @@ class HillCipher{
     std::string message;
     std::string cipher;
     int termFrequency;
+    std::vector<std::vector<int>> keyMatrix;
+
 
     public: 
 
@@ -30,14 +33,20 @@ class HillCipher{
 
 
     //getters and setters
-    void setMessage(std::string value){
-        message = value;
+    void setMessage(std::string message){
+        this->message = message;
     }
-    void setCipher(std::string value){
-        cipher = value;
+
+    void setCipher(std::string cipher){
+        this->cipher = cipher;
     }
-    void setTermFrequency(int value){
-        termFrequency = value;
+
+    void setTermFrequency(int termFrequency){
+        this->termFrequency=termFrequency ;
+    }
+
+    void setKeyMatrix(std::vector<std::vector<int>> keyMatrix){
+        this->keyMatrix = keyMatrix;
     }
 
     std::string getMessage(){
@@ -51,6 +60,7 @@ class HillCipher{
     int getTermFrequency(){
         return termFrequency;
     }
+
 
 
 };
