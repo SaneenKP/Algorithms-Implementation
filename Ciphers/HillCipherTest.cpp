@@ -13,6 +13,10 @@ class HillCipher{
 
     public: 
 
+    void encrypt(){
+        std::vector<int> messageValues = generateMessageValues();
+    }
+
     //method to generate random number for keyMatrix.
     void generateKey(){
 
@@ -29,6 +33,20 @@ class HillCipher{
             }
         }
         setKeyMatrix(keyMatrix);
+    }
+
+    std::vector<int> generateMessageValues(){
+
+        int remaining = message.length() % termFrequency;
+        while (remaining-- != 0)
+            message.push_back('X');
+        
+        std::vector<int> messageValues;
+
+        for (int i = 0; i < message.length(); ++i)
+            messageValues.push_back(message[i] - 65);
+        
+        return messageValues;
     }
 
     void display(){
@@ -117,5 +135,7 @@ int main(){
     std::cin>>termFrequency;
 
     hillcipher.setTermFrequency(termFrequency);
+
+    hillcipher.encrypt();
 
 }
