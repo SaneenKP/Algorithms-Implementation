@@ -51,7 +51,10 @@ std::vector<int> multiplyMatrix(int termFrequency, std::vector<int> term , std::
     return result;
 }
 
-void fillCipherValues(std::vector<int> term , std::vector<int> &cipherValues){
+void fillCipherValues(int termFrequency,std::vector<int> &term , std::vector<int> &cipherValues){
+
+    for (int i = 0; i < termFrequency; ++i)
+        cipherValues.push_back(term[i]%26);
     
 }
 
@@ -63,18 +66,22 @@ std::string hillCipher(std::string &message , int &termFrequency){
     std::vector<int> cipherValues;
 
     std::vector<int> term(termFrequency,0);
-    for (int i = 0; i < messageValues.size(); ++i)
+
+    for (int i = 0 , j = 0; i < messageValues.size(); ++i , ++j)
     {
-        if (i == (termFrequency-1))
+        term[j] = messageValues[i];
+        if (j % termFrequency ==1)
         {
             term = multiplyMatrix(termFrequency ,  term , keyMatrix);
-        }else{
-            term.push_back(messageValues[i]);
+            fillCipherValues(termFrequency , term , cipherValues);
+            j = 0;
         }
-        
+    }
+
+    for(auto x : cipherValues){
+        std::cout<<x<<" ";
     }
     
-
 
     return "";
 }
