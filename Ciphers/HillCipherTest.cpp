@@ -35,6 +35,7 @@ class HillCipher{
         setKeyMatrix(keyMatrix);
     }
 
+    //no geerate array of message values with remaining spaces filled with x.
     std::vector<int> generateMessageValues(){
 
         int remaining = message.length() % termFrequency;
