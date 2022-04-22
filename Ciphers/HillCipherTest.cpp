@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<random>
 
 class HillCipher{
 
@@ -11,6 +12,36 @@ class HillCipher{
 
 
     public: 
+
+    void generateKey(){
+
+        std::vector<std::vector<int>> keyMatrix(termFrequency,std::vector<int>(termFrequency,0));
+        std::random_device seed;
+        std::mt19937 gen{seed()};
+        std::uniform_int_distribution distributionForKey{1,99};
+
+        for (int i = 0; i < termFrequency; ++i)
+        {
+            for (int j = 0; j < termFrequency; ++j)
+            {
+                keyMatrix[i][j] = distributionForKey(gen);
+            }
+        }
+        setKeyMatrix(keyMatrix);
+    }
+
+    void display(){
+
+        for(auto x : keyMatrix){
+
+            for(auto y : x){
+
+                std::cout<<y<<" ";
+            }
+            std::cout<<std::endl;
+        }
+        
+    }
 
     std::string tranformMessage(std::string message){
 
@@ -85,5 +116,8 @@ int main(){
     std::cin>>termFrequency;
 
     hillcipher.setTermFrequency(termFrequency);
+
+    hillcipher.generateKey();
+    hillcipher.display();
 
 }
